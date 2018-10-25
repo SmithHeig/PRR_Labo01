@@ -24,8 +24,8 @@
       <file leaf-file-name="MasterClock.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/prr/labo/MasterClock.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="467">
-              <caret line="124" column="61" selection-start-line="124" selection-start-column="61" selection-end-line="124" selection-end-column="61" />
+            <state relative-caret-position="235">
+              <caret line="126" column="17" selection-start-line="126" selection-start-column="16" selection-end-line="126" selection-end-column="63" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="imports" expanded="true" />
@@ -44,6 +44,11 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>IpC</find>
+    </findStrings>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -152,16 +157,15 @@
       <workItem from="1539525371199" duration="104000" />
       <workItem from="1539695305858" duration="3136000" />
       <workItem from="1539948075770" duration="1882000" />
-      <workItem from="1540472688286" duration="5852000" />
+      <workItem from="1540472688286" duration="8164000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35639000" />
+    <option name="totallyTimeSpent" value="37951000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="793" y="0" width="814" height="867" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -202,7 +206,15 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="5" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/prr/labo/MasterClock.java</url>
+          <line>126</line>
+          <properties />
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="6" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -451,8 +463,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/prr/labo/MasterClock.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
-          <caret line="124" column="61" selection-start-line="124" selection-start-column="61" selection-end-line="124" selection-end-column="61" />
+        <state relative-caret-position="235">
+          <caret line="126" column="17" selection-start-line="126" selection-start-column="16" selection-end-line="126" selection-end-column="63" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />

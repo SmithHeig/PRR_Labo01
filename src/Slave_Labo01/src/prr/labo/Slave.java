@@ -36,6 +36,8 @@ public class Slave {
         gap = 0;
         delayIsRunning = false;
 
+        k = 2000;
+
         // Création du thread qui calcule l'écart (Porocole Synchronisation)
         tGap= new Thread() {
             public void run() {
@@ -151,6 +153,7 @@ public class Slave {
             InetAddress inetAddress = InetAddress.getLocalHost();
             //address = InetAddress.getByName("localhost");
             //strAdress = inetAddress.getHostAddress();
+            System.err.println(inetAddress.getHostAddress());
             do{
 
                 // Attente aléatoire [4k;60k]
@@ -186,7 +189,7 @@ public class Slave {
 
                             }
                         }
-                        TimeUnit.SECONDS.sleep(k);
+                        TimeUnit.MILLISECONDS.sleep(k);
 
 //                        wait(timeToWait);
                     }

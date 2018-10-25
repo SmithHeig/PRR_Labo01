@@ -57,6 +57,7 @@ public class MasterClock {
     }
 
     public void gap(){
+        System.out.println("Serveur gap has been started");
         String msg;
         byte[] bufSYNC = new byte[2];
         byte[] bufFollowUP = new byte[10];
@@ -83,6 +84,7 @@ public class MasterClock {
                bufFollowUP[9] = id;
 
                multicast(bufFollowUP);
+               System.out.println("Serveur SYNC finish: " + id);
                TimeUnit.MILLISECONDS.sleep(2000);
 
 
