@@ -16,7 +16,7 @@ public class Slave {
 
     private Thread tDelay;
     private Thread tGap;
-
+    private boolean isFinish;
     private Random random;
 
     private boolean isDebug;
@@ -31,6 +31,7 @@ public class Slave {
         random = new Random();
         delay = 0;
         gap = 0;
+        isFinish = false;
 
         // Adress du serveur par défaut
         try {
@@ -79,12 +80,12 @@ public class Slave {
 
             // Joindre le groupe pour recevoir le message diffuse
             MulticastSocket socket = new MulticastSocket(CommunicationConfig.masterMulticalPort);
-            InetAddress groupe = InetAddress.getByName(CommunicationConfig.masterMulticastIp);
-            socket.joinGroup(groupe);
+                InetAddress groupe = InetAddress.getByName(CommunicationConfig.masterMulticastIp);
+                socket.joinGroup(groupe);
 
             do {
                 // Attendre le message du serveur
-                DatagramPacket paquet = new DatagramPacket(tampon,tampon.length);
+                DatagramPacket paquet = new DatagramPacket(tampon, tampon.length);
                 socket.receive(paquet);
                 tmpData = paquet.getData();
 
@@ -103,6 +104,7 @@ public class Slave {
                         timeServeur = bytesToLong(Arrays.copyOfRange(tmpData, 1, 9));
                         setGap(timeServeur - timeClient);
 
+                        // lancement du 2ième thread
                         if(!delayIsRunning){
                             setServeurAdress(paquet.getAddress());
 
@@ -111,7 +113,7 @@ public class Slave {
                         }
                     }
                 }
-            }while(tmpData[0] != 0xf);
+            }while(isFinish);
             socket.leaveGroup(groupe);
             socket.close();
         } catch (IOException e) {
@@ -135,10 +137,13 @@ public class Slave {
 
         byte[] message = new byte[2];
         byte[] rcvMessage = new byte[10];
-        byte[] tampon = new byte[256];
+
 
         InetAddress inetAddress = getServeurAdress();
         try {
+
+            DatagramSocket socket = new DatagramSocket();
+
             do{
                 ++clientId;
 
@@ -148,8 +153,7 @@ public class Slave {
                 message[0] = CommunicationConfig.delayRequestMessage;
 
                 message[1] = clientId;
-                DatagramSocket socket = new DatagramSocket();
-                DatagramPacket paquet = new DatagramPacket(message, message.length, inetAddress,CommunicationConfig.masterP2PPort);
+                DatagramPacket paquet = new DatagramPacket(message, message.length, inetAddress, CommunicationConfig.masterP2PPort);
 
                 // Envoyer le message
                 timeEs = System.currentTimeMillis();
@@ -158,16 +162,13 @@ public class Slave {
                     System.out.println("DelayRequest sent with id:" + clientId);
                 }
 
+
                 // Timout set après le temps maximal d'attente et un peu plus pour ne pas rester bloqué.
                 socket.setSoTimeout((int)CommunicationConfig.k * 6 + 100);
                 try{
                     DatagramPacket rcvPacket = new DatagramPacket(rcvMessage,rcvMessage.length);
                     socket.receive(rcvPacket);
-                    //rcvMessage = rcvPacket.getData();
 
-                    if(isDebug){
-                        System.err.println("Delay response SRVid: " + rcvMessage[9] + " cliId: " + clientId);
-                    }
 
                     if(rcvMessage[0] == CommunicationConfig.delayResponsetMessage){
                         // Contrôle si le message reçu est le bon
@@ -176,18 +177,22 @@ public class Slave {
                             timeMaster = bytesToLong(Arrays.copyOfRange(rcvMessage, 1, 9));
 
                             // Attention, calcule en entier. le résultat est précis à +- 1ms;
-                            setDelay((timeMaster - timeEs) / 2);
+                            setDelay((timeMaster - timeEs) / (long)2);
 
                         }
                     }
 
                 } catch (SocketTimeoutException e) {
-                    System.out.println("Timeout reached!!! " + e);
+                    System.err.println("Timeout reached!!! " );
+                    e.printStackTrace();
                 }
 
                 TimeUnit.MILLISECONDS.sleep(timeToWait);
 
-            } while(true);
+
+            } while(!isFinish);
+
+            socket.close();
 
         } catch (UnknownHostException e) {
             e.printStackTrace();
@@ -225,15 +230,32 @@ public class Slave {
         }
     }
 
+
+    /**
+     * Permet de terminer le serveur proprement
+     */
+    public synchronized void shutDown(){
+        isFinish = true;
+    }
+
+
     private synchronized InetAddress getServeurAdress(){
         return this.serveurAdress;
     }
 
-    /****  SETTERS
+    /****  getter
      * Ils sont tous en synchronised car ils ont accès à des variables partagées
      ***/
     private synchronized long getShift(){
         return delay + gap;
+    }
+
+    /**
+     *
+     * @return l'heure du serveur + le décalage
+     */
+    public synchronized long getTime(){
+        return System.currentTimeMillis() + getShift();
     }
 
 
