@@ -23,5 +23,5 @@ public class CommunicationConfig {
     public final static int idPosBigArray = 9;             //
 
 
-    public final static int k = 2000;               // [ms]
+    public final static long k = 2000;               // [ms]
 }

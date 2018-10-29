@@ -96,7 +96,7 @@ public class MasterClock {
         } while(true);
     }
 
-    public void delay(){
+    protected void delay(){
         byte[] tampon = new byte[256];
         byte[] tmpData;
         byte[] response = new byte[10];
@@ -109,9 +109,13 @@ public class MasterClock {
                 // Attendre le message du client
                 DatagramPacket paquet = new DatagramPacket(tampon,tampon.length);
                 socket.receive(paquet);
-                if(debug){
-                    System.out.println("Serveur: delay reciew");
+
+                try {
+                    TimeUnit.MILLISECONDS.sleep( 2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
+
                 curTime = System.currentTimeMillis();
 
                 // Obtenir l'adresse et le port du client
@@ -119,13 +123,17 @@ public class MasterClock {
                 int portClient = paquet.getPort();
 
 
+
                 // Reemettre le message recu
                 tmpData = paquet.getData();
                 System.arraycopy(longToBytes(curTime), 0, response, 1, 8);
                 response[0] = 0x3;
                 response[9] = tmpData[1];
-                System.out.println("IP cli:" + addresseClient);
-                paquet= new DatagramPacket(tampon,tampon.length,addresseClient,portClient);
+
+
+
+                System.err.println("IP cli:" + addresseClient + "  id:" + tmpData[1] );
+                paquet= new DatagramPacket(response, response.length,addresseClient,portClient);
                 socket.send(paquet);
                 socket.close();
 
@@ -139,43 +147,11 @@ public class MasterClock {
         }while(true);
     }
 
-    public void sendDataGram(String msg) {
-
-        byte[] buf = msg.getBytes();
-
-        try {
-            String received;
-            DatagramPacket packet;
-            packet = new DatagramPacket(buf, buf.length, InetAddress.getByName("localhost"), 4445);
-            DatagramSocket socket = null;
-            socket = new DatagramSocket();
-            socket.send(packet);
-            packet = new DatagramPacket(buf, buf.length);
-            socket.receive(packet);
-            received = new String(packet.getData(), 0, packet.getLength());
-            socket.close();
-
-        } catch (UnknownHostException e) {
-            e.printStackTrace();
-
-        } catch (SocketException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-
-    private void multicast(String multicastMessage) throws IOException {
-        DatagramSocket socket = new DatagramSocket();
-        byte [] buf = multicastMessage.getBytes();
-
-        DatagramPacket packet
-                = new DatagramPacket(buf, buf.length, group, 4446);
-        socket.send(packet);
-        socket.close();
-    }
-
+    /**
+     * Permet d'envpyer
+     * @param multicastMessage  message à envoyer
+     * @throws IOException
+     */
     private void multicast(byte[] multicastMessage) throws IOException {
         DatagramSocket socket = new DatagramSocket();
         DatagramPacket packet
@@ -184,16 +160,15 @@ public class MasterClock {
         socket.close();
     }
 
+    /**
+     * Méthode permettant de convertire un lonn en un tableau de byte.
+     * cf: https://stackoverflow.com/questions/1586882/how-do-i-convert-a-byte-to-a-long-in-java
+     * @param x long à convertire
+     * @return valeur dans un tableau de bytes
+     */
     public byte[] longToBytes(long x) {
         ByteBuffer buffer = ByteBuffer.allocate(Long.BYTES);
         buffer.putLong(x);
         return buffer.array();
-    }
-
-    public long bytesToLong(byte[] bytes) {
-        ByteBuffer buffer = ByteBuffer.allocate(Long.BYTES);
-        buffer.put(bytes);
-        buffer.flip();//need flip
-        return buffer.getLong();
     }
 }

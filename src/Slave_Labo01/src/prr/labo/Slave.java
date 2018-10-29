@@ -1,47 +1,47 @@
 package prr.labo;
 
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.*;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
-import java.util.Properties;
-
 
 
 public class Slave {
-    private boolean isDebug;
     private long delay;
-    private long shif;
     private long gap;
-    boolean delayIsRunning;
 
+    private InetAddress serveurAdress;      // Adresse du serveur maître
 
     private Thread tDelay;
     private Thread tGap;
 
     private Random random;
 
-    int k;
+    private boolean isDebug;
 
 
-    /** Construscteur**/
-    public Slave(){
-        isDebug = true;
+    /**
+     * Construscteur
+     * @param isDebug Affiche des commentaires utile pour le débug
+     */
+    public Slave(boolean isDebug){
+        this.isDebug = isDebug;
         random = new Random();
         delay = 0;
         gap = 0;
-        delayIsRunning = false;
 
-        k = 2000;
+        // Adress du serveur par défaut
+        try {
+            serveurAdress = InetAddress.getByName("localhost");
+        } catch (Exception e){
+            System.err.println(e);
+        }
 
         // Création du thread qui calcule l'écart (Porocole Synchronisation)
-        tGap= new Thread() {
+        tGap = new Thread() {
             public void run() {
-
                 doGap();
             }
         };
@@ -49,18 +49,20 @@ public class Slave {
         // Création du thread qui calcule le délai (Porocole Delay)
         tDelay = new Thread() {
             public void run() {
-                delaySlaveSpeaker();
+                doDelay();
             }
         };
-
 
         tGap.start();
 
     }
 
 
-    // SYNC
-    public void doGap(){
+    /**
+     * Méthode qui permet de calculer l'écart (SYNC).
+     */
+    protected void doGap(){
+
         if(isDebug){
             System.out.println("Client: Gap function has been started");
         }
@@ -68,6 +70,7 @@ public class Slave {
         byte serverId = 0;
         long timeServeur = 0;
         long timeClient = 0;
+        boolean delayIsRunning = false;
 
         try {
 
@@ -76,7 +79,7 @@ public class Slave {
 
             // Joindre le groupe pour recevoir le message diffuse
             MulticastSocket socket = new MulticastSocket(CommunicationConfig.masterMulticalPort);
-                InetAddress groupe = InetAddress.getByName(CommunicationConfig.masterMulticastIp);
+            InetAddress groupe = InetAddress.getByName(CommunicationConfig.masterMulticastIp);
             socket.joinGroup(groupe);
 
             do {
@@ -92,18 +95,19 @@ public class Slave {
                     serverId = tmpData[1];
 
                 } else if(tmpData[0] == CommunicationConfig.followUpMessage){ // Message  FOLLOW_UP = 0x1
-                    System.out.println(serverId + " ID: " + tmpData[9]);
+
+
                     // Contrôle si le message reçu est le bon
                     if(tmpData[9] == serverId){
                         // récupèration de l'heure
                         timeServeur = bytesToLong(Arrays.copyOfRange(tmpData, 1, 9));
-                        System.out.println(" TimeSrv: " + timeServeur );
-                        System.out.println(" TimeSrv: " + timeClient );
                         setGap(timeServeur - timeClient);
 
                         if(!delayIsRunning){
-                            tDelay.start();
+                            setServeurAdress(paquet.getAddress());
+
                             delayIsRunning = true;
+                            tDelay.start();
                         }
                     }
                 }
@@ -115,25 +119,11 @@ public class Slave {
         }
     }
 
-    private synchronized void setDelay(long delay){
-        this.delay = delay;
-        if(isDebug){
-            System.out.println("Client: Delay has been set to" + delay);
-        }
-    }
-
-    private synchronized  void setGap(long gap){
-        this.gap = gap;
-        if(isDebug){
-            System.out.println("Client: Gap has been set to: " + gap);
-        }
-    }
-
-    private synchronized long getShift(){
-        return delay + gap;
-    }
-
-    private void delaySlaveSpeaker(){
+    /**
+     * Méthode qui permet de calculer le delay (DELAY_REQUEST/DELAY_RESPONSE). Doit se lancer après que le la méthode
+     *  doGap ait été effectuée au moins une fois.
+     */
+    protected void doDelay(){
 
         if(isDebug){
             System.out.println("Client: Delay function has been started");
@@ -141,63 +131,61 @@ public class Slave {
         byte clientId = 0;
         long timeEs = 0;
         long timeMaster = 0;
-        int timeToWait = 0;
+        long timeToWait = 0;
 
         byte[] message = new byte[2];
         byte[] rcvMessage = new byte[10];
         byte[] tampon = new byte[256];
 
-        InetAddress address = null;
-        String strAdress;
+        InetAddress inetAddress = getServeurAdress();
         try {
-            InetAddress inetAddress = InetAddress.getLocalHost();
-            //address = InetAddress.getByName("localhost");
-            //strAdress = inetAddress.getHostAddress();
-            System.err.println(inetAddress.getHostAddress());
             do{
+                ++clientId;
 
                 // Attente aléatoire [4k;60k]
-                timeToWait = k * (random.nextInt(57) + 4);  // FIXME: Random
-                message[0] = 0x2;
+                timeToWait = CommunicationConfig.k * ((long) random.nextInt(57) + 4);
+                timeToWait = 2000;
+                message[0] = CommunicationConfig.delayRequestMessage;
 
-                message[1] = ++clientId;
-
-                DatagramPacket paquet = new DatagramPacket(tampon,tampon.length, inetAddress,4445);
+                message[1] = clientId;
                 DatagramSocket socket = new DatagramSocket();
+                DatagramPacket paquet = new DatagramPacket(message, message.length, inetAddress,CommunicationConfig.masterP2PPort);
+
                 // Envoyer le message
                 timeEs = System.currentTimeMillis();
                 socket.send(paquet);
+                if(isDebug){
+                    System.out.println("DelayRequest sent with id:" + clientId);
+                }
 
-                socket.setSoTimeout(timeToWait);
-
+                // Timout set après le temps maximal d'attente et un peu plus pour ne pas rester bloqué.
+                socket.setSoTimeout((int)CommunicationConfig.k * 6 + 100);
                 try{
-                    DatagramPacket rcvPacket = new DatagramPacket(tampon,tampon.length,address,4445);
+                    DatagramPacket rcvPacket = new DatagramPacket(rcvMessage,rcvMessage.length);
                     socket.receive(rcvPacket);
-                    rcvMessage = rcvPacket.getData();
+                    //rcvMessage = rcvPacket.getData();
 
-                    if(rcvMessage.length >= 10){
-                        if(rcvMessage[0] == 0x3){
-
-                            // Contrôle si le message reçu est le bon
-                            if(rcvMessage[10] == clientId){
-                                // récupèration de l'heure
-                                timeMaster = bytesToLong(Arrays.copyOfRange(rcvMessage, 1, 9));
-
-
-                                // Attention, calcule en entier. le résultat est précis à +- 1ms;
-                                setDelay((timeMaster - timeEs) / 2);
-
-                            }
-                        }
-                        TimeUnit.MILLISECONDS.sleep(k);
-
-//                        wait(timeToWait);
+                    if(isDebug){
+                        System.err.println("Delay response SRVid: " + rcvMessage[9] + " cliId: " + clientId);
                     }
+
+                    if(rcvMessage[0] == CommunicationConfig.delayResponsetMessage){
+                        // Contrôle si le message reçu est le bon
+                        if(rcvMessage[9] == clientId){
+                            // récupèration de l'heure
+                            timeMaster = bytesToLong(Arrays.copyOfRange(rcvMessage, 1, 9));
+
+                            // Attention, calcule en entier. le résultat est précis à +- 1ms;
+                            setDelay((timeMaster - timeEs) / 2);
+
+                        }
+                    }
+
                 } catch (SocketTimeoutException e) {
-                    // timeout exception.
                     System.out.println("Timeout reached!!! " + e);
                 }
 
+                TimeUnit.MILLISECONDS.sleep(timeToWait);
 
             } while(true);
 
@@ -212,16 +200,53 @@ public class Slave {
         }
     }
 
-    public byte[] longToBytes(long x) {
-        ByteBuffer buffer = ByteBuffer.allocate(Long.BYTES);
-        buffer.putLong(x);
-        return buffer.array();
+    /****  SETTERS
+     * Ils sont tous en synchronised car ils ont accès à des variables partagées
+    ***/
+
+    private synchronized void setDelay(long delay){
+        this.delay = delay;
+        if(isDebug){
+            System.out.println("Client: Delay has been set to: " + delay);
+        }
     }
 
+    private synchronized void setServeurAdress(InetAddress serveurAdress){
+        if(isDebug){
+            System.out.println("Client: Server address has been set to: " + serveurAdress);
+        }
+        this.serveurAdress = serveurAdress;
+    }
+
+    private synchronized  void setGap(long gap){
+        this.gap = gap;
+        if(isDebug){
+            System.out.println("Client: Gap has been set to: " + gap);
+        }
+    }
+
+    private synchronized InetAddress getServeurAdress(){
+        return this.serveurAdress;
+    }
+
+    /****  SETTERS
+     * Ils sont tous en synchronised car ils ont accès à des variables partagées
+     ***/
+    private synchronized long getShift(){
+        return delay + gap;
+    }
+
+
+    /**
+     * Méthode permettant de convertire un tableau de byte en long.
+     * cf: https://stackoverflow.com/questions/1586882/how-do-i-convert-a-byte-to-a-long-in-java
+     * @param bytes tableau de bytes à convertire
+     * @return  valeur en long
+     */
     public long bytesToLong(byte[] bytes) {
         ByteBuffer buffer = ByteBuffer.allocate(Long.BYTES);
         buffer.put(bytes);
-        buffer.flip();//need flip
+        buffer.flip();  //need flip
         return buffer.getLong();
     }
 }

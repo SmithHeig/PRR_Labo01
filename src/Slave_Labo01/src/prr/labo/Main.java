@@ -8,7 +8,7 @@ public class Main {
 	// write your code here
 
 
-        Slave s = new Slave();
+        Slave s = new Slave(true);
         /*Slave s2 = new Slave();
         Slave s3 = new Slave();
         Slave s4 = new Slave();
