@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Slave_Labo01:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/src/prr/labo/Slave.java" line="60" mnemonic="5" />
   </component>
@@ -18,15 +23,16 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/prr/labo/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
+            <state relative-caret-position="150">
               <caret line="10" column="32" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Slave.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Slave.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/prr/labo/Slave.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="277">
               <caret line="168" column="76" selection-start-line="168" selection-start-column="66" selection-end-line="168" selection-end-column="76" />
               <folding>
@@ -43,6 +49,12 @@
                 <element signature="e#7294#7295#0" expanded="true" />
                 <element signature="e#7550#7551#0" expanded="true" />
                 <element signature="e#7612#7613#0" expanded="true" />
+=======
+            <state relative-caret-position="420">
+              <caret line="80" column="91" selection-start-line="80" selection-start-column="91" selection-end-line="80" selection-end-column="91" />
+              <folding>
+                <element signature="imports" expanded="true" />
+>>>>>>> master
               </folding>
             </state>
           </provider>
@@ -51,17 +63,30 @@
       <file leaf-file-name="CommunicationConfig.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/prr/labo/CommunicationConfig.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="219">
               <caret line="21" column="46" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="46" />
+=======
+            <state relative-caret-position="135">
+              <caret line="9" column="55" selection-start-line="9" selection-start-column="55" selection-end-line="9" selection-end-column="55" />
+>>>>>>> master
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="GapSlave.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/prr/labo/GapSlave.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
               <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+=======
+      <file leaf-file-name="Dockerfile" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Dockerfile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+>>>>>>> master
             </state>
           </provider>
         </entry>
@@ -101,6 +126,7 @@
         <option value="$PROJECT_DIR$/src/prr/labo/Main.java" />
         <option value="$PROJECT_DIR$/src/prr/labo/CommunicationConfig.java" />
         <option value="$PROJECT_DIR$/src/prr/labo/Slave.java" />
+        <option value="$PROJECT_DIR$/Dockerfile" />
       </list>
     </option>
   </component>
@@ -113,17 +139,23 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
+<<<<<<< HEAD
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-7" />
     <option name="width" value="814" />
     <option name="height" value="867" />
+=======
+  <component name="ProjectFrameBounds">
+    <option name="y" value="17" />
+    <option name="width" value="1920" />
+    <option name="height" value="1063" />
+>>>>>>> master
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -135,12 +167,56 @@
             <path>
               <item name="Slave_Labo01" type="b2602c69:ProjectViewProjectNode" />
               <item name="Slave_Labo01" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Slave_Labo01" type="b2602c69:ProjectViewProjectNode" />
               <item name="Slave_Labo01" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Slave_Labo01" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Slave_Labo01" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+              <item name="Slave_Labo01_jar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Slave_Labo01" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Slave_Labo01" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+              <item name="unnamed" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Slave_Labo01" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Slave_Labo01" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="production" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Slave_Labo01" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Slave_Labo01" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="production" type="462c0819:PsiDirectoryNode" />
+              <item name="Slave_Labo01" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Slave_Labo01" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Slave_Labo01" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="production" type="462c0819:PsiDirectoryNode" />
+              <item name="Slave_Labo01" type="462c0819:PsiDirectoryNode" />
+              <item name="prr" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Slave_Labo01" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Slave_Labo01" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="production" type="462c0819:PsiDirectoryNode" />
+              <item name="Slave_Labo01" type="462c0819:PsiDirectoryNode" />
+              <item name="prr" type="462c0819:PsiDirectoryNode" />
               <item name="labo" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -151,6 +227,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -182,6 +259,11 @@
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
+      <method>
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="Slave_Labo01:jar" />
+        </option>
+      </method>
     </configuration>
     <recent_temporary>
       <list>
@@ -209,15 +291,27 @@
       <workItem from="1539695331036" duration="3852000" />
       <workItem from="1540472702258" duration="13600000" />
       <workItem from="1540562119040" duration="38000" />
+<<<<<<< HEAD
       <workItem from="1540739051408" duration="20582000" />
+=======
+      <workItem from="1540739051408" duration="11198000" />
+      <workItem from="1540831747491" duration="2913000" />
+>>>>>>> master
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="67716000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+=======
+    <option name="totallyTimeSpent" value="61245000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="17" width="1920" height="1063" extended-state="0" />
+>>>>>>> master
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -229,14 +323,21 @@
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+<<<<<<< HEAD
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3387534" />
+=======
+      <window_info anchor="bottom" id="Run" order="2" weight="0.34285715" />
+>>>>>>> master
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32910052" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
+<<<<<<< HEAD
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.08226221" />
+=======
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16044776" />
+>>>>>>> master
       <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="right" id="SciView" order="4" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
@@ -248,38 +349,39 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="right" id="SciView" order="4" />
       <window_info anchor="bottom" id="Find" order="1" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.34293553" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16047746" />
-      <window_info anchor="right" id="SciView" order="9" />
       <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.3292683" />
+      <window_info anchor="right" id="SciView" order="9" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="TODO" order="6" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info id="UI Designer" order="4" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.37212276" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Database" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.3292683" />
-      <window_info anchor="right" id="Maven Projects" order="8" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="right" id="Maven Projects" order="8" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16047746" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -313,13 +415,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/util/Random.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6664">
-          <caret line="431" column="57" selection-start-line="431" selection-start-column="49" selection-end-line="431" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/util/Random.java" />
     <entry file="file://$PROJECT_DIR$/src/prr/labo/CommunicationConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -333,6 +429,7 @@
           <caret line="158" column="48" selection-start-line="158" selection-start-column="29" selection-end-line="158" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
+<<<<<<< HEAD
             <element signature="e#1019#1114#0" expanded="true" />
             <element signature="e#1113#1114#0" expanded="true" />
             <element signature="e#1202#1299#0" expanded="true" />
@@ -345,6 +442,8 @@
             <element signature="e#7294#7295#0" expanded="true" />
             <element signature="e#7550#7551#0" expanded="true" />
             <element signature="e#7612#7613#0" expanded="true" />
+=======
+>>>>>>> master
           </folding>
         </state>
       </provider>
@@ -356,13 +455,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/util/Random.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7327">
-          <caret line="431" column="57" selection-start-line="431" selection-start-column="49" selection-end-line="431" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/util/Random.java" />
     <entry file="file://$PROJECT_DIR$/src/prr/labo/CommunicationConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -376,6 +469,7 @@
           <caret line="158" column="48" selection-start-line="158" selection-start-column="29" selection-end-line="158" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
+<<<<<<< HEAD
             <element signature="e#1019#1114#0" expanded="true" />
             <element signature="e#1113#1114#0" expanded="true" />
             <element signature="e#1202#1299#0" expanded="true" />
@@ -388,6 +482,8 @@
             <element signature="e#7294#7295#0" expanded="true" />
             <element signature="e#7550#7551#0" expanded="true" />
             <element signature="e#7612#7613#0" expanded="true" />
+=======
+>>>>>>> master
           </folding>
         </state>
       </provider>
@@ -399,13 +495,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/Thread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11152">
-          <caret line="707" selection-start-line="707" selection-end-line="707" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/Thread.java" />
     <entry file="file://$PROJECT_DIR$/src/prr/labo/GapSlave.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -419,6 +509,7 @@
           <caret line="178" lean-forward="true" selection-start-line="178" selection-end-line="178" />
           <folding>
             <element signature="imports" expanded="true" />
+<<<<<<< HEAD
             <element signature="e#1019#1114#0" expanded="true" />
             <element signature="e#1113#1114#0" expanded="true" />
             <element signature="e#1202#1299#0" expanded="true" />
@@ -431,6 +522,8 @@
             <element signature="e#7294#7295#0" expanded="true" />
             <element signature="e#7550#7551#0" expanded="true" />
             <element signature="e#7612#7613#0" expanded="true" />
+=======
+>>>>>>> master
           </folding>
         </state>
       </provider>
@@ -442,13 +535,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/Thread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12019">
-          <caret line="707" selection-start-line="707" selection-end-line="707" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/Thread.java" />
     <entry file="file://$PROJECT_DIR$/src/prr/labo/GapSlave.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -462,6 +549,7 @@
           <caret line="194" column="9" selection-start-line="192" selection-start-column="32" selection-end-line="194" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
+<<<<<<< HEAD
             <element signature="e#1019#1114#0" expanded="true" />
             <element signature="e#1113#1114#0" expanded="true" />
             <element signature="e#1202#1299#0" expanded="true" />
@@ -474,6 +562,8 @@
             <element signature="e#7294#7295#0" expanded="true" />
             <element signature="e#7550#7551#0" expanded="true" />
             <element signature="e#7612#7613#0" expanded="true" />
+=======
+>>>>>>> master
           </folding>
         </state>
       </provider>
@@ -485,13 +575,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/Thread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12019">
-          <caret line="707" selection-start-line="707" selection-end-line="707" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/Thread.java" />
     <entry file="file://$PROJECT_DIR$/src/prr/labo/GapSlave.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -505,6 +589,7 @@
           <caret line="194" column="9" selection-start-line="192" selection-start-column="32" selection-end-line="194" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
+<<<<<<< HEAD
             <element signature="e#1019#1114#0" expanded="true" />
             <element signature="e#1113#1114#0" expanded="true" />
             <element signature="e#1202#1299#0" expanded="true" />
@@ -517,6 +602,8 @@
             <element signature="e#7294#7295#0" expanded="true" />
             <element signature="e#7550#7551#0" expanded="true" />
             <element signature="e#7612#7613#0" expanded="true" />
+=======
+>>>>>>> master
           </folding>
         </state>
       </provider>
@@ -528,13 +615,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/Thread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12019">
-          <caret line="707" selection-start-line="707" selection-end-line="707" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/Thread.java" />
     <entry file="file://$PROJECT_DIR$/src/prr/labo/GapSlave.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -548,6 +629,7 @@
           <caret line="186" selection-start-line="186" selection-end-line="186" />
           <folding>
             <element signature="imports" expanded="true" />
+<<<<<<< HEAD
             <element signature="e#1019#1114#0" expanded="true" />
             <element signature="e#1113#1114#0" expanded="true" />
             <element signature="e#1202#1299#0" expanded="true" />
@@ -560,6 +642,8 @@
             <element signature="e#7294#7295#0" expanded="true" />
             <element signature="e#7550#7551#0" expanded="true" />
             <element signature="e#7612#7613#0" expanded="true" />
+=======
+>>>>>>> master
           </folding>
         </state>
       </provider>
@@ -571,13 +655,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/Thread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12019">
-          <caret line="707" selection-start-line="707" selection-end-line="707" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/Thread.java" />
     <entry file="file://$PROJECT_DIR$/src/prr/labo/GapSlave.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -591,6 +669,7 @@
           <caret line="186" selection-start-line="186" selection-end-line="186" />
           <folding>
             <element signature="imports" expanded="true" />
+<<<<<<< HEAD
             <element signature="e#1019#1114#0" expanded="true" />
             <element signature="e#1113#1114#0" expanded="true" />
             <element signature="e#1202#1299#0" expanded="true" />
@@ -603,6 +682,8 @@
             <element signature="e#7294#7295#0" expanded="true" />
             <element signature="e#7550#7551#0" expanded="true" />
             <element signature="e#7612#7613#0" expanded="true" />
+=======
+>>>>>>> master
           </folding>
         </state>
       </provider>
@@ -614,13 +695,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/Thread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12019">
-          <caret line="707" selection-start-line="707" selection-end-line="707" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/Thread.java" />
     <entry file="file://$PROJECT_DIR$/src/prr/labo/GapSlave.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -634,6 +709,7 @@
           <caret line="186" selection-start-line="186" selection-end-line="186" />
           <folding>
             <element signature="imports" expanded="true" />
+<<<<<<< HEAD
             <element signature="e#1019#1114#0" expanded="true" />
             <element signature="e#1113#1114#0" expanded="true" />
             <element signature="e#1202#1299#0" expanded="true" />
@@ -646,6 +722,8 @@
             <element signature="e#7294#7295#0" expanded="true" />
             <element signature="e#7550#7551#0" expanded="true" />
             <element signature="e#7612#7613#0" expanded="true" />
+=======
+>>>>>>> master
           </folding>
         </state>
       </provider>
@@ -670,6 +748,7 @@
           <caret line="57" selection-start-line="57" selection-end-line="65" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
+<<<<<<< HEAD
             <element signature="e#1019#1114#0" expanded="true" />
             <element signature="e#1113#1114#0" expanded="true" />
             <element signature="e#1202#1299#0" expanded="true" />
@@ -682,6 +761,8 @@
             <element signature="e#7294#7295#0" expanded="true" />
             <element signature="e#7550#7551#0" expanded="true" />
             <element signature="e#7612#7613#0" expanded="true" />
+=======
+>>>>>>> master
           </folding>
         </state>
       </provider>
@@ -699,6 +780,7 @@
           <caret line="21" selection-start-line="21" selection-end-line="21" />
           <folding>
             <element signature="imports" expanded="true" />
+<<<<<<< HEAD
             <element signature="e#1019#1114#0" expanded="true" />
             <element signature="e#1113#1114#0" expanded="true" />
             <element signature="e#1202#1299#0" expanded="true" />
@@ -711,6 +793,8 @@
             <element signature="e#7294#7295#0" expanded="true" />
             <element signature="e#7550#7551#0" expanded="true" />
             <element signature="e#7612#7613#0" expanded="true" />
+=======
+>>>>>>> master
           </folding>
         </state>
       </provider>
@@ -722,6 +806,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/net/MulticastSocket.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -733,6 +818,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="656">
           <caret line="707" selection-start-line="707" selection-end-line="707" />
+=======
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/net/MulticastSocket.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/Thread.java" />
+    <entry file="file://$PROJECT_DIR$/src/prr/labo/GapSlave.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+>>>>>>> master
         </state>
       </provider>
     </entry>
@@ -744,20 +837,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/net/InetAddress.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/net/InetAddress.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/util/concurrent/TimeUnit.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/net/DatagramSocket.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/util/Random.java" />
+    <entry file="file://$PROJECT_DIR$/src/prr/labo/Slave.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="679" column="18" selection-start-line="679" selection-start-column="18" selection-end-line="679" selection-end-column="18" />
+        <state relative-caret-position="420">
+          <caret line="80" column="91" selection-start-line="80" selection-start-column="91" selection-end-line="80" selection-end-column="91" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/util/concurrent/TimeUnit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="381" column="16" selection-start-line="381" selection-start-column="16" selection-end-line="381" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
+<<<<<<< HEAD
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/util/Random.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="329">
@@ -769,16 +863,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/prr/labo/CommunicationConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="55" selection-start-line="9" selection-start-column="55" selection-end-line="9" selection-end-column="55" />
+>>>>>>> master
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/prr/labo/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
+        <state relative-caret-position="150">
           <caret line="10" column="32" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/prr/labo/CommunicationConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="219">
@@ -812,6 +913,12 @@
             <element signature="e#7550#7551#0" expanded="true" />
             <element signature="e#7612#7613#0" expanded="true" />
           </folding>
+=======
+    <entry file="file://$PROJECT_DIR$/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+>>>>>>> master
         </state>
       </provider>
     </entry>
@@ -821,7 +928,7 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
-          <last-edited>unnamed</last-edited>
+          <last-edited>Slave_Labo01:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
