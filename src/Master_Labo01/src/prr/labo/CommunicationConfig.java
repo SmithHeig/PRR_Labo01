@@ -16,7 +16,6 @@ public class CommunicationConfig {
     public final static byte followUpMessage = 0x1;
     public final static byte delayRequestMessage = 0x2;
     public final static byte delayResponsetMessage = 0x3;
-    public final static byte errorEndMessage = 0xf;
 
     public final static String masterMulticastIp = "230.0.0.0";
     public final static int masterMulticalPort = 4446;

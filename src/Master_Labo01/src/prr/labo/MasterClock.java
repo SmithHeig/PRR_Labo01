@@ -5,6 +5,8 @@
  *
  * Sources:
  *      Multicast: https://www.baeldung.com/java-broadcast-multicast
+ *      conversion long to byte[]:
+ *  https://stackoverflow.com/questions/1586882/how-do-i-convert-a-byte-to-a-long-in-java
  */
 
 package prr.labo;
@@ -16,6 +18,14 @@ import java.nio.ByteBuffer;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Classe représentant le maître dans le protocol P2P.
+ * Contient 2 threads, 1 qui s'occupe du SYNC(calcul de l'écart) et l'autre du
+ * DELAY_REQUEST(claczl du délai).
+ * Les threads sont lancé directement après l'appelle au constructeur.
+ * La méthode shutDown() permet de stopper les threads une fois qu'ils ont fini leur
+ *  travail (pour stopper les threads proprement)
+ */
 public class MasterClock {
     private final boolean isDebug;
     private final boolean simulateLattency;
@@ -28,6 +38,11 @@ public class MasterClock {
 
     private boolean isFinish;   // permet d'arrêter proprement les threads lors
 
+    /**
+     * Contructeur. Initialise les 2 threads et les démarre.
+     * @param isDebug           permet d'afficher des messagesd 'informations.
+     * @param simulateLattency  permet de simuler un latce pour l'écart et le delay.
+     */
     public MasterClock(boolean isDebug, boolean simulateLattency){
 
         this.isDebug = isDebug;
@@ -80,8 +95,6 @@ public class MasterClock {
                 bufSYNC[1] = id;
                 multicast(bufSYNC);
 
-
-
                 // Simulation de latence si besoin
                 simulateLattency();
 
@@ -117,7 +130,7 @@ public class MasterClock {
             System.out.println("Server: Delay function has been started");
         }
         byte[] tampon = new byte[256];
-        byte[] tmpData;
+        byte[] tmpData = new byte[2];
         byte[] response = new byte[10];
         long curTime = 0;
 
@@ -125,15 +138,12 @@ public class MasterClock {
             DatagramSocket socket = new DatagramSocket(CommunicationConfig.masterP2PPort);
             do{
 
-
-
-
                 // Attendre le message du client
-                DatagramPacket paquet = new DatagramPacket(tampon,tampon.length);
+                DatagramPacket paquet = new DatagramPacket(tmpData,tmpData.length);
                 socket.receive(paquet);
 
                 // Re-mettre le message recu
-                tmpData = paquet.getData();
+                //tmpData = paquet.getData();
 
                 if(tmpData[0] == CommunicationConfig.delayRequestMessage) {
 

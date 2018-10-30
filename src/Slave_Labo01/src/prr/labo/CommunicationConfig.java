@@ -7,7 +7,7 @@ package prr.labo;
  * Le dernier Byte du message contient l'id (de type byte).
  * Si on doit communiquer une date (de type long), il est écrit entre le type et l'id sur 8bytes.
  */
-public class CommunicationConfig {
+public class    CommunicationConfig {
 
     /*
         Code pour savoir quelle est le type de message
